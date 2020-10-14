@@ -1,7 +1,7 @@
 % Simple shaft bending FRF without supports
 clear all
 %% Frequency Range
-W = 1:0.2:200;W = W*2*pi;
+W = 1:0.1:100;W = W*2*pi;
 % W = 1:200;W = W*2*pi;
 %% Initializing shaft material property,    
 n = 3;
