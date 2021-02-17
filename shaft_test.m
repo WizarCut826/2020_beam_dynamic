@@ -1,16 +1,17 @@
 % Simple shaft bending FRF without supports
 clear all
 %% Frequency Range
-W = 1:0.1:200;W = W*2*pi;
+W = 1:200;W = W*2*pi;
 % W = 1:200;W = W*2*pi;
 %% Initializing shaft material property,    
 n = 3;
-E = 2.1e11;eta = 0.0;
+E = 2.1e11;eta = 0.01;
 E = E.*(1+1i*eta);E = E*ones(n,1);
 V = 0.3;
 G = 0.5*E./(1.+V);    % shear module
 
-R = [0.01 0.02 0.01];D = 2*R;
+R = [0.01 0.02 0.01];
+D = 2*R;
 r = [0 0 0]; d = 2*r;
 
 l = [1 1 1];
@@ -58,16 +59,16 @@ end
 delete(h);
 %% Plot
 for i = 1:length(W)
-    disp1(i) = Hashaft{i}(1,1);
-    disp2(i) = Hashaft{i}(1,2);
-    disp3(i) = Hashaft{i}(1,3);
-    disp4(i) = Hashaft{i}(1,4);
+    disp1(i) = Hshaft{i}(1,1);
+    disp2(i) = Hshaft{i}(1,2);
+    disp3(i) = Hshaft{i}(1,3);
+    disp4(i) = Hshaft{i}(1,4);
 end
 figure;
-plot(W/2/pi,(disp1),'linewidth',1);hold on;
-plot(W/2/pi,(disp2),'linewidth',2);hold on;
-plot(W/2/pi,(disp3),'linewidth',1);hold on;
-plot(W/2/pi,(disp4),'linewidth',1);hold on;
-% set(gca,'yscale','log')
+plot(W/2/pi,abs(disp1),'linewidth',1);hold on;
+plot(W/2/pi,abs(disp2),'linewidth',2);hold on;
+plot(W/2/pi,abs(disp3),'linewidth',1);hold on;
+plot(W/2/pi,abs(disp4),'linewidth',1);hold on;
+set(gca,'yscale','log')
 % plot(W/2/pi,abs(disp1));
 % semilogy(W/2/pi,abs(disp))
