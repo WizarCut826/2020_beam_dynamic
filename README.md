@@ -1,2 +1,2 @@
-# 2020_dualshaft_dynamic
-dual shaft dynamic characteristic and forced response calculation.
+# 2020_multisec_beam_dynamic
+Multi-section beam dynamic characteristic and forced response calculation.
